@@ -35,9 +35,6 @@ ADD rootfs/docker-gzip-indexes /etc/apt/apt.conf.d/docker-gzip-indexes
 # update "autoremove" configuration to be aggressive about removing suggests deps that weren't manually installed
 ADD rootfs/docker-autoremove-suggests /etc/apt/apt.conf.d/docker-autoremove-suggests
 
-# add the updates and security repositories 
-RUN sed -i 'p;s/ trusty / trusty-updates /;p;s/ trusty-updates / trusty-security /' /etc/apt/sources.list
-
 #
 RUN echo 'APT::Install-Recommends 0;' >> /etc/apt/apt.conf.d/01norecommends
 RUN echo 'APT::Install-Suggests 0;' >> /etc/apt/apt.conf.d/01norecommends
